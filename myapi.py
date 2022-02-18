@@ -43,7 +43,7 @@ def home():
 @app.route('/api/v1/test', methods=['GET','POST'])
 def get_alert():
 
-    #myheaders = request.headers()
+    myheaders = request.headers()
     request_data = request.get_json()
     LOG.info(type(request_data))
 
@@ -52,7 +52,7 @@ def get_alert():
     with open("data.txt", "a") as file:
         file.write(result)
         file.write("\n\n")
-    #LOG.info(myheaders)
+    LOG.info(myheaders)
     LOG.info("\n")
     LOG.info(result)
 
@@ -61,4 +61,4 @@ def get_alert():
     return request_data
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=80, debug=True) # specify port=80
+    app.run(host='0.0.0.0', port=5000, debug=True) # specify port=80
